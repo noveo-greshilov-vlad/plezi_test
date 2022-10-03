@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
-import MainPage from './pages/Main';
-import DetailsPage from './pages/Details';
-import NotFound from './components/NotFound';
+import { Main as MainPage, Details as DetailsPage } from 'Pages';
+import { NotFound } from 'Components';
 
 const App = () => (
   <div className="flex flex-col h-full">

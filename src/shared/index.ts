@@ -1,4 +1,4 @@
-export enum MovieStatus {
+export enum EMovieStatus {
   rumored = 'Rumored',
   planned = 'Planned',
   production = 'In Production',
@@ -7,7 +7,7 @@ export enum MovieStatus {
   canceled = 'Canceled'
 }
 
-export type MovieDetailsResponse = {
+export type TMovieDetailsResponse = {
   adult: boolean;
   backdrop_path?: string;
   belongs_to_collection?: null;
@@ -38,7 +38,7 @@ export type MovieDetailsResponse = {
     iso_639_1: string;
     name: string;
   }>;
-  status: MovieStatus;
+  status: EMovieStatus;
   tagline?: string;
   title: string;
   video: boolean;
@@ -46,7 +46,7 @@ export type MovieDetailsResponse = {
   vote_count: number;
 };
 
-export type MovieListResultObject = {
+export type TMovieListResultObject = {
   poster_path: string | null;
   adult: boolean;
   overview: string;
@@ -63,14 +63,14 @@ export type MovieListResultObject = {
   vote_average: number;
 };
 
-export type PopularMoviesResponse = {
+export type TPopularMoviesResponse = {
   page: number;
-  results: Array<MovieListResultObject>;
+  results: Array<TMovieListResultObject>;
   total_pages: number;
   total_results: number;
 };
 
-export type ApiConfigType = {
+export type TApiConfigType = {
   images: {
     base_url: string;
     secure_base_url: string;

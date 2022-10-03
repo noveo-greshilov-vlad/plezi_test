@@ -1,10 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getPopularMovies } from '../../../api';
+import { getPopularMovies } from 'Api';
 
-const fetchMovies = createAsyncThunk('movie/load', async () => {
+export const fetchMovies = createAsyncThunk('movie/load', async () => {
   const { results } = await getPopularMovies();
 
   return results;
 });
-
-export default fetchMovies;

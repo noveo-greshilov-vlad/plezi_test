@@ -1,4 +1,4 @@
-import { getConfig as fetchConfig } from '../api';
+import { getConfig as fetchConfig } from 'Api';
 
 let base_url = localStorage.getItem('base_url');
 

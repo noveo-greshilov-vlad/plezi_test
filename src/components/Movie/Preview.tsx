@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
-import { MovieListResultObject } from '../../shared';
-import { buildPreviewLink } from '../../shared/utils';
+import { buildPreviewLink } from 'Shared/utils';
+import { TMovieListResultObject } from 'Shared';
 
-type Props = {
-  movie: MovieListResultObject;
+export type TPreviewProps = {
+  movie: TMovieListResultObject;
 };
 
-const Preview = ({ movie }: Props) => (
+export const Preview = ({ movie }: TPreviewProps) => (
   <Link to={`/movie/${movie.id}`} state={{ fromDashboard: true }}>
     <div className="relative block h-48 overflow-hidden rounded">
       <img
@@ -19,11 +19,13 @@ const Preview = ({ movie }: Props) => (
       />
     </div>
     <div className="mt-4">
-      <h3 className="title-font mb-1 text-xs tracking-widest text-gray-500">{movie.adult}</h3>
-      <h2 className="title-font text-lg font-medium text-gray-900">{movie.title}</h2>
+      <h3 className="title-font mb-1 text-xs tracking-widest text-gray-500">
+        {movie.adult}
+      </h3>
+      <h2 className="title-font text-lg font-medium text-gray-900">
+        {movie.title}
+      </h2>
       {movie.release_date && <p className="mt-1">{movie.release_date}</p>}
     </div>
   </Link>
 );
-
-export default Preview;

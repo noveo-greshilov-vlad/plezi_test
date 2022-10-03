@@ -1,15 +1,17 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import BackButton from '../components/BackButton';
-import MovieDetails from '../components/Movie/Details';
-import NotFound from '../components/NotFound';
-import { useAppDispatch, useAppSelector } from '../hooks';
-import fetchMovieDetails from '../store/features/movie/fetchMovieDetails';
+import { BackButton, NotFound } from 'Components';
+import { Details as MovieDetails } from 'Components/Movie';
+import { useAppDispatch, useAppSelector } from 'Hooks';
+import { fetchMovieDetails } from 'Store/features/movie/fetchMovieDetails';
+import { selectCurrentMovie } from 'Store/selectors';
 
-const Details = () => {
+export const Details = () => {
   const dispatch = useAppDispatch();
   const { id } = useParams<{ id: string }>();
-  const movie = useAppSelector(state => state.movie.current[id as string]);
+  const movie = useAppSelector(state =>
+    selectCurrentMovie(state, id as string)
+  );
   const firstLoadRef = useRef<boolean>(true);
 
   useEffect(() => {
@@ -26,12 +28,13 @@ const Details = () => {
 
   return (
     <section className="flex flex-col flex-1 text-start overflow-hidden">
-      <div className="absolute p-5 bg-slate-100 bg-opacity-70 rounded-lg" style={{ zIndex: 99 }}>
+      <div
+        className="absolute p-5 bg-slate-100 bg-opacity-70 rounded-lg"
+        style={{ zIndex: 99 }}
+      >
         <BackButton />
       </div>
       {pageContent}
     </section>
   );
 };
-
-export default Details;

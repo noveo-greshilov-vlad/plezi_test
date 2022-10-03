@@ -1,11 +1,11 @@
-import { MovieListResultObject } from '../shared';
-import Preview from './Movie/Preview';
+import { TMovieListResultObject } from 'Shared';
+import { Preview } from 'Components/Movie';
 
-type Props = {
-  movies: Array<MovieListResultObject>;
+export type TLayoutProps = {
+  movies: Array<TMovieListResultObject>;
 };
 
-const Layout = ({ movies }: Props) => {
+export const Layout = ({ movies }: TLayoutProps) => {
   return (
     <section className="min-h-screen body-font text-gray-600 ">
       <div className="container mx-auto px-5 py-10">
@@ -22,5 +22,3 @@ const Layout = ({ movies }: Props) => {
     </section>
   );
 };
-
-export default Layout;

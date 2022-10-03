@@ -1,10 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getMovieDetails } from '../../../api';
+import { getMovieDetails } from 'Api';
 
-const fetchMovieDetails = createAsyncThunk('movie/load/details', async (id: number) => {
-  const data = await getMovieDetails(id);
+export const fetchMovieDetails = createAsyncThunk(
+  'movie/details/load',
+  async (id: number) => {
+    const data = await getMovieDetails(id);
 
-  return data;
-});
-
-export default fetchMovieDetails;
+    return data;
+  }
+);

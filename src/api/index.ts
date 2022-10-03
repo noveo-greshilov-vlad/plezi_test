@@ -1,5 +1,9 @@
 import axios from 'axios';
-import { ApiConfigType, MovieDetailsResponse, PopularMoviesResponse } from '../shared';
+import {
+  TApiConfigType,
+  TMovieDetailsResponse,
+  TPopularMoviesResponse
+} from 'Shared';
 
 const baseURL = process.env.REACT_APP_API_BASE_URL;
 const apiKey = process.env.REACT_APP_API_KEY;
@@ -25,19 +29,19 @@ api.interceptors.response.use(
 );
 
 export async function getPopularMovies() {
-  const { data } = await api.get<PopularMoviesResponse>('/movie/popular');
+  const { data } = await api.get<TPopularMoviesResponse>('/movie/popular');
 
   return data;
 }
 
 export async function getMovieDetails(id: number) {
-  const { data } = await api.get<MovieDetailsResponse>(`/movie/${id}`);
+  const { data } = await api.get<TMovieDetailsResponse>(`/movie/${id}`);
 
   return data;
 }
 
 export async function getConfig() {
-  const { data } = await api.get<ApiConfigType>(`/configuration`);
+  const { data } = await api.get<TApiConfigType>(`/configuration`);
 
   return data;
 }
