@@ -20,8 +20,8 @@ const Details = ({ movie }: Props) => {
             transform: 'scale(1.03)'
           }}
         ></div>
-        <div className="p-5 bg-slate-100 bg-opacity-30 z-10 absolute top-0 left-0 w-full h-full">
-          <div className="flex flex-row p-5 h-full">
+        <div className="p-5 bg-slate-100 bg-opacity-30 z-10 absolute top-0 left-0 w-full h-full overflow-y-scroll">
+          <div className="flex md:flex-row p-5 flex-col h-fit">
             <div className="flex-1 p-5 flex justify-center items-center" style={{ flexGrow: 1 }}>
               <img
                 className="h-2/3 shadow-inner rounded-md"
@@ -30,7 +30,7 @@ const Details = ({ movie }: Props) => {
               />
             </div>
             <div className="flex-1 p-5 overflow-y-auto" style={{ flexGrow: 2 }}>
-              <h1 className="font-sans text-2xl text-center">{movie.title}</h1>
+              <h1 className="title-font text-lg font-medium text-gray-900 text-center">{movie.title}</h1>
               <br />
               <p className="font-sans">{movie.overview}</p>
               <br />

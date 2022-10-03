@@ -26,7 +26,7 @@ const Details = () => {
 
   return (
     <section className="flex flex-col flex-1 text-start overflow-hidden">
-      <div className="absolute p-5" style={{ zIndex: 99 }}>
+      <div className="absolute p-5 bg-slate-100 bg-opacity-70 rounded-lg" style={{ zIndex: 99 }}>
         <BackButton />
       </div>
       {pageContent}
