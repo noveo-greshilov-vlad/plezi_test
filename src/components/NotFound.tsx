@@ -1,3 +1,3 @@
-const NotFound = () => <h2>Movie not found</h2>;
+const NotFound = () => <h2>Page not found</h2>;
 
 export default NotFound;

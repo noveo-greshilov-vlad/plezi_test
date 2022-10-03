@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import MainPage from './pages/Main';
 import DetailsPage from './pages/Details';
+import NotFound from './components/NotFound';
 
 const App = () => (
   <div className="flex flex-col h-full">
@@ -11,6 +12,7 @@ const App = () => (
     <Routes>
       <Route path="/" element={<MainPage />}></Route>
       <Route path="/movie/:id" element={<DetailsPage />}></Route>
+      <Route path="*" element={<NotFound />}></Route>
     </Routes>
   </div>
 );
