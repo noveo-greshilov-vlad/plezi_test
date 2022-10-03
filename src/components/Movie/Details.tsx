@@ -9,6 +9,7 @@ export type TDetailsProps = {
 
 export const Details = ({ movie }: TDetailsProps) => {
   const { buildPoserUrl } = useUrlBuilders();
+  const parsedGenres = movie.genres.map(genr => genr.name).join(', ');
 
   return (
     <div className="flex flex-col flex-1 relative">
@@ -46,7 +47,7 @@ export const Details = ({ movie }: TDetailsProps) => {
               <br />
               <p>
                 <strong>Genre: </strong>
-                {movie.genres.map(genr => genr.name).join(', ')}
+                {parsedGenres}
               </p>
               <br />
               <p>
