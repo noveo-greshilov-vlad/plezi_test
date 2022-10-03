@@ -14,11 +14,8 @@ export const Preview = ({ movie }: TPreviewProps) => {
       <div className="relative block h-48 overflow-hidden rounded">
         <img
           alt="plezi movie lib"
-          className="block h-full w-full object-cover object-center cursor-pointer"
-          src={buildPreviewUrl(movie.poster_path as string)}
-          style={{
-            background: `url("https://dummyimage.com/420x260") no-repeat scroll 0 0`
-          }}
+          className="block h-full w-full object-cover object-center cursor-pointer bg-no-repeat bg-scroll bg-[url('https://dummyimage.com/420x260')]"
+          src={buildPreviewUrl(movie.poster_path ?? '')}
         />
       </div>
       <div className="mt-4">

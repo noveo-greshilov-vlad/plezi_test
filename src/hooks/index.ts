@@ -12,11 +12,11 @@ export const useUrlBuilders = () => {
   const baseUrl = useAppSelector(selectBaseUrl);
 
   const buildPreviewUrl = useCallback(
-    (file: string) => `${baseUrl}w500${file}`,
+    (file: string) => (!baseUrl ? '' : `${baseUrl}w500${file}`),
     [baseUrl]
   );
   const buildPoserUrl = useCallback(
-    (file: string) => `${baseUrl}original${file}`,
+    (file: string) => (!baseUrl ? '' : `${baseUrl}original${file}`),
     [baseUrl]
   );
 
