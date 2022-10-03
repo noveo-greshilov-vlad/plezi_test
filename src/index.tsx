@@ -5,9 +5,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { store } from 'Store';
-import { initConfig } from 'Shared/utils';
-
-initConfig();
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

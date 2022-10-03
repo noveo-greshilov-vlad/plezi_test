@@ -76,4 +76,4 @@ const movieSlice = createSlice({
 
 export const { setMovieList, setCurrentMovie } = movieSlice.actions;
 
-export default movieSlice.reducer;
+export const movieReducer = movieSlice.reducer;

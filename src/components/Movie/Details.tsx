@@ -1,19 +1,22 @@
+import { useUrlBuilders } from 'Hooks';
 import PrettyRating from 'pretty-rating-react';
 import { TMovieDetailsResponse } from 'Shared';
-import { buildPosterLink, formatMoney } from 'Shared/utils';
+import { formatMoney } from 'Shared/utils';
 
 export type TDetailsProps = {
   movie: TMovieDetailsResponse;
 };
 
 export const Details = ({ movie }: TDetailsProps) => {
+  const { buildPoserUrl } = useUrlBuilders();
+
   return (
     <div className="flex flex-col flex-1 relative">
       <div className="flex-1">
         <div
           className="blur w-full h-full"
           style={{
-            backgroundImage: `url("${buildPosterLink(
+            backgroundImage: `url("${buildPoserUrl(
               movie.poster_path as string
             )}")`,
             backgroundPosition: 'center',
@@ -30,7 +33,7 @@ export const Details = ({ movie }: TDetailsProps) => {
             >
               <img
                 className="h-2/3 shadow-inner rounded-md"
-                src={buildPosterLink(movie.poster_path as string)}
+                src={buildPoserUrl(movie.poster_path as string)}
                 alt={movie.original_title}
               />
             </div>
