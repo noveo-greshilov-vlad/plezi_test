@@ -1,7 +1,12 @@
 import { useEffect, useRef } from 'react';
-import { getPopularMovies } from '../api';
+import MoviePreview from '../components/Movie/Preview';
+import { useAppDispatch, useAppSelector } from '../hooks';
+import fetchMovies from '../store/features/movie/fetchMovie';
 
 const Main = () => {
+  const dispatch = useAppDispatch();
+  const movies = useAppSelector(state => state.movie.list);
+  const isLoading = useAppSelector(state => state.movie.isLoading);
   const firstLoadRef = useRef<boolean>(true);
 
   useEffect(() => {
@@ -9,18 +14,13 @@ const Main = () => {
 
     firstLoadRef.current = false;
 
-    getPopularMovies();
+    dispatch(fetchMovies());
   });
 
   return (
-    <div>
-      <ul>
-        <li className="text-3xl font-bold">1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-      </ul>
-    </div>
+    <section className="flex-1 p-5">
+      {isLoading ? <p>Loading</p> : movies.map(movie => <MoviePreview key={movie.id} movie={movie} />)}
+    </section>
   );
 };
 
