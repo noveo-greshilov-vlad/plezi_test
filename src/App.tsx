@@ -1,26 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import styles from './App.module.scss';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import MainPage from './pages/Main';
 import DetailsPage from './pages/Details';
 
 const App = () => (
-  <div className={styles.root}>
-    <header className={styles.header}>
-      <img src={logo} className={styles.logo} alt="logo" />
-      <p>
-        Edit <code>src/App.tsx</code> and save to reload.
-      </p>
+  <div className="flex flex-col h-full">
+    <header className="p-3 bg-gradient-to-r from-cyan-500 to-blue-400 shadow-2xl">
+      <h1 className="text-xl font-sans">Plezi's most populars movies</h1>
+      <h2 className="text-sm font-mono">by themoviedb</h2>
     </header>
-    <section>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<MainPage />}></Route>
-          <Route path="/movie/:id" element={<DetailsPage />}></Route>
-        </Routes>
-      </BrowserRouter>
-    </section>
+    <Routes>
+      <Route path="/" element={<MainPage />}></Route>
+      <Route path="/movie/:id" element={<DetailsPage />}></Route>
+    </Routes>
   </div>
 );
 
