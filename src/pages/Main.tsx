@@ -10,8 +10,10 @@ export const Main = () => {
   const isLoading = useAppSelector(selectIsLoading);
 
   useEffect(() => {
+    if (movies.length !== 0) return;
+
     dispatch(fetchMovies());
-  }, []);
+  }, [dispatch, movies.length]);
 
   const layout = useMemo(
     () => (isLoading ? <Loading /> : <Layout movies={movies} />),
