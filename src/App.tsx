@@ -19,9 +19,9 @@ const App = () => {
         <h2 className="text-sm font-mono">by themoviedb</h2>
       </header>
       <Routes>
-        <Route path="/" element={<MainPage />}></Route>
-        <Route path="/movie/:id" element={<DetailsPage />}></Route>
-        <Route path="*" element={<NotFound />}></Route>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/movie/:id" element={<DetailsPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
