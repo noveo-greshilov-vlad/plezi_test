@@ -1,1 +1,3 @@
-export const NotFound = () => <h2>Page not found</h2>;
+import { memo } from 'react';
+
+export const NotFound = memo(() => <h2>Page not found</h2>);
