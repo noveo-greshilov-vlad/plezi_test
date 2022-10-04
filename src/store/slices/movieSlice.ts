@@ -1,7 +1,8 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TMovieDetailsResponse, TMovieListResultObject } from 'Shared';
-import { fetchMovies } from 'Store/features/movie/fetchMovie';
-import { fetchMovieDetails } from 'Store/features/movie/fetchMovieDetails';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+
+import { TMovieDetailsResponse, TMovieListResultObject } from 'shared';
+import { fetchMovies } from 'store/features/movie/fetchMovie';
+import { fetchMovieDetails } from 'store/features/movie/fetchMovieDetails';
 
 type TCurrentMoviesMap = {
   [id: string]: TMovieDetailsResponse;

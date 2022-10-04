@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Main as MainPage, Details as DetailsPage } from 'Pages';
-import { NotFound } from 'Components';
-import { useAppDispatch } from 'Hooks';
-import { fetchConfig } from 'Store/features/config/fetchConfig';
+
+import { NotFound } from 'components';
+import { useAppDispatch } from 'hooks';
+import { Details as DetailsPage, Main as MainPage } from 'pages';
+import { fetchConfig } from 'store/features/config/fetchConfig';
 
 const App = () => {
   const dispatch = useAppDispatch();

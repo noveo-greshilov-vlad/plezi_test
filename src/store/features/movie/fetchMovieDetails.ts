@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getMovieDetails } from 'Api';
+
+import { getMovieDetails } from 'api';
 
 export const fetchMovieDetails = createAsyncThunk(
   'movie/details/load',

@@ -1,9 +1,10 @@
 import axios from 'axios';
+
 import {
   TApiConfigType,
   TMovieDetailsResponse,
   TPopularMoviesResponse
-} from 'Shared';
+} from 'shared';
 
 const baseURL = process.env.REACT_APP_API_BASE_URL;
 const apiKey = process.env.REACT_APP_API_KEY;

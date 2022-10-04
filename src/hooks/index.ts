@@ -1,7 +1,8 @@
 import { useCallback } from 'react';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import type { TRootState, AppDispatch } from 'Store';
-import { selectBaseUrl } from 'Store/selectors';
+
+import type { AppDispatch, TRootState } from 'store';
+import { selectBaseUrl } from 'store/selectors';
 
 // Use throughout your app instead of plain `useDispatch` and `useSelector`
 export const useAppDispatch: () => AppDispatch = useDispatch;

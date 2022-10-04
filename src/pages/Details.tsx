@@ -1,10 +1,11 @@
 import { useEffect, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import { BackButton, NotFound } from 'Components';
-import { Details as MovieDetails } from 'Components/Movie';
-import { useAppDispatch, useAppSelector } from 'Hooks';
-import { fetchMovieDetails } from 'Store/features/movie/fetchMovieDetails';
-import { selectCurrentMovie } from 'Store/selectors';
+
+import { BackButton, NotFound } from 'components';
+import { Details as MovieDetails } from 'components/Movie';
+import { useAppDispatch, useAppSelector } from 'hooks';
+import { fetchMovieDetails } from 'store/features/movie/fetchMovieDetails';
+import { selectCurrentMovie } from 'store/selectors';
 
 export const Details = () => {
   const dispatch = useAppDispatch();

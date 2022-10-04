@@ -1,8 +1,9 @@
 import { useEffect, useMemo } from 'react';
-import { Layout, Loading } from 'Components';
-import { useAppDispatch, useAppSelector } from 'Hooks';
-import { fetchMovies } from 'Store/features/movie/fetchMovie';
-import { selectIsLoading, selectMoviesList } from 'Store/selectors';
+
+import { Layout, Loading } from 'components';
+import { useAppDispatch, useAppSelector } from 'hooks';
+import { fetchMovies } from 'store/features/movie/fetchMovie';
+import { selectIsLoading, selectMoviesList } from 'store/selectors';
 
 export const Main = () => {
   const dispatch = useAppDispatch();

@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { fetchConfig } from 'Store/features/config/fetchConfig';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+
+import { fetchConfig } from 'store/features/config/fetchConfig';
 
 type TConfigSliceState = {
   baseUrl: string;
