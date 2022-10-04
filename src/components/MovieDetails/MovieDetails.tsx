@@ -12,20 +12,20 @@ export const MovieDetails = ({ movie }: TMovieDetailsProps) => {
   const { buildPosterUrl } = useUrlBuilders();
   const parsedGenres = movie.genres.map(genr => genr.name).join(', ');
   const posterPath = movie.poster_path ?? '';
-  const backgroundImage = !posterPath
-    ? null
-    : `url("${buildPosterUrl(posterPath)}")`;
+  const backgroundImage = !posterPath ? null : buildPosterUrl(posterPath);
 
   return (
     <div className="relative flex flex-1 flex-col">
       <div className="flex-1">
-        <div
-          className="h-full w-full scale-105 bg-cover bg-center bg-no-repeat blur"
-          // used styles attr here because tailwind cant pars dynamic urls in classNames
-          style={{
-            ...(backgroundImage && { backgroundImage })
-          }}
-        ></div>
+        <div className="relative h-full w-full scale-105 blur">
+          {backgroundImage && (
+            <img
+              className="absolute h-full w-full object-cover"
+              src={backgroundImage}
+              alt=""
+            />
+          )}
+        </div>
         <div className="absolute top-0 left-0 z-10 h-full w-full overflow-y-scroll bg-slate-100 bg-opacity-30 p-5">
           <div className="flex h-fit flex-col p-5 md:flex-row">
             <div className="flex flex-1 flex-grow-[1] items-center justify-center p-5">

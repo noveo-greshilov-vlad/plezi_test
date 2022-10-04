@@ -13,13 +13,8 @@ export const MoviesLayout = () => {
   });
 
   return (
-    <section className="flex-1 p-5">
-      <section className="body-font min-h-screen text-gray-600 ">
-        <div className="container mx-auto px-5 py-10">
-          <div className="-m-4 flex flex-wrap">{mappedMovies}</div>
-        </div>
-      </section>
-      );
+    <section className="body-font flex min-h-screen flex-1 flex-wrap p-5 text-gray-600">
+      {mappedMovies}
     </section>
   );
 };
