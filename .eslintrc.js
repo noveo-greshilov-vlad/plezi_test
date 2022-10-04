@@ -46,7 +46,10 @@ module.exports = {
           caseInsensitive: true
         }
       }
-    ]
+    ],
+    'import/newline-after-import': ['error'],
+    'no-multiple-empty-lines': ['error'],
+    'eol-last': ['error', 'always']
   },
   settings: {
     'import/resolver': {
