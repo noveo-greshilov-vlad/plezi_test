@@ -1,11 +1,13 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { BackButton, NotFound } from 'components';
-import { Details as MovieDetails } from 'components/Movie';
-import { useAppDispatch, useAppSelector } from 'hooks';
-import { fetchMovieDetails } from 'store/features/movie/fetchMovieDetails';
-import { selectCurrentMovie } from 'store/selectors';
+import { MovieDetails } from 'components/MovieDetails/MovieDetails';
+import { useAppDispatch } from 'hooks/useAppDispatch';
+import { useAppSelector } from 'hooks/useAppSelector';
+import { fetchMovieDetails } from 'store/movie/actions/fetchMovieDetails';
+import { selectCurrentMovie } from 'store/movie/selectors';
+import { BackButton } from 'ui/BackButton/BackButton';
+import { NotFound } from 'ui/NotFound/NotFound';
 
 export const Details = () => {
   const dispatch = useAppDispatch();
@@ -18,16 +20,14 @@ export const Details = () => {
     }
   }, [dispatch, id, movie]);
 
-  const pageContent = useMemo(() => {
-    return movie ? <MovieDetails movie={movie} /> : <NotFound />;
-  }, [movie]);
+  if (!movie) return <NotFound />;
 
   return (
-    <section className="flex flex-col flex-1 text-start overflow-hidden">
-      <div className="absolute p-5 bg-slate-100 bg-opacity-70 rounded-lg z-50">
+    <section className="flex flex-1 flex-col overflow-hidden text-start">
+      <div className="absolute z-50 rounded-lg bg-slate-100 bg-opacity-70 p-5">
         <BackButton />
       </div>
-      {pageContent}
+      <MovieDetails movie={movie} />
     </section>
   );
 };

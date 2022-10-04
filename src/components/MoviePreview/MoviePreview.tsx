@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 
-import { useUrlBuilders } from 'hooks';
+import { useUrlBuilders } from 'hooks/useUrlBuilders';
 import { TMovieListResultObject } from 'types';
 
-export type TPreviewProps = {
+export type TMoviePreviewProps = {
   movie: TMovieListResultObject;
 };
 
-export const Preview = ({ movie }: TPreviewProps) => {
+export const MoviePreview = ({ movie }: TMoviePreviewProps) => {
   const { buildPreviewUrl } = useUrlBuilders();
 
   return (
@@ -15,7 +15,7 @@ export const Preview = ({ movie }: TPreviewProps) => {
       <div className="relative block h-48 overflow-hidden rounded">
         <img
           alt="plezi movie lib"
-          className="block h-full w-full object-cover object-center cursor-pointer bg-no-repeat bg-scroll bg-[url('https://dummyimage.com/420x260')]"
+          className="block h-full w-full cursor-pointer bg-[url('https://dummyimage.com/420x260')] bg-scroll bg-no-repeat object-cover object-center"
           src={buildPreviewUrl(movie.poster_path ?? '')}
         />
       </div>

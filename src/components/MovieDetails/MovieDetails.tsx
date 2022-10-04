@@ -1,42 +1,42 @@
 import PrettyRating from 'pretty-rating-react';
 
-import { useUrlBuilders } from 'hooks';
+import { useUrlBuilders } from 'hooks/useUrlBuilders';
 import { TMovieDetailsResponse } from 'types';
 import { formatMoney } from 'utils';
 
-export type TDetailsProps = {
+export type TMovieDetailsProps = {
   movie: TMovieDetailsResponse;
 };
 
-export const Details = ({ movie }: TDetailsProps) => {
-  const { buildPoserUrl } = useUrlBuilders();
+export const MovieDetails = ({ movie }: TMovieDetailsProps) => {
+  const { buildPosterUrl } = useUrlBuilders();
   const parsedGenres = movie.genres.map(genr => genr.name).join(', ');
   const posterPath = movie.poster_path ?? '';
   const backgroundImage = !posterPath
     ? null
-    : `url("${buildPoserUrl(posterPath)}")`;
+    : `url("${buildPosterUrl(posterPath)}")`;
 
   return (
-    <div className="flex flex-col flex-1 relative">
+    <div className="relative flex flex-1 flex-col">
       <div className="flex-1">
         <div
-          className="blur w-full h-full scale-105 bg-cover bg-no-repeat bg-center"
+          className="h-full w-full scale-105 bg-cover bg-center bg-no-repeat blur"
           // used styles attr here because tailwind cant pars dynamic urls in classNames
           style={{
             ...(backgroundImage && { backgroundImage })
           }}
         ></div>
-        <div className="p-5 bg-slate-100 bg-opacity-30 z-10 absolute top-0 left-0 w-full h-full overflow-y-scroll">
-          <div className="flex md:flex-row p-5 flex-col h-fit">
-            <div className="flex-1 p-5 flex flex-grow-[1] justify-center items-center">
+        <div className="absolute top-0 left-0 z-10 h-full w-full overflow-y-scroll bg-slate-100 bg-opacity-30 p-5">
+          <div className="flex h-fit flex-col p-5 md:flex-row">
+            <div className="flex flex-1 flex-grow-[1] items-center justify-center p-5">
               <img
-                className="h-2/3 shadow-inner rounded-md"
-                src={buildPoserUrl(posterPath)}
+                className="h-2/3 rounded-md shadow-inner"
+                src={buildPosterUrl(posterPath)}
                 alt={movie.original_title}
               />
             </div>
-            <div className="flex-1 p-5 overflow-y-auto flex-grow-[2]">
-              <h1 className="title-font text-lg font-medium text-gray-900 text-center">
+            <div className="flex-1 flex-grow-[2] overflow-y-auto p-5">
+              <h1 className="title-font text-center text-lg font-medium text-gray-900">
                 {movie.title}
               </h1>
               <br />

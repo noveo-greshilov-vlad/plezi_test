@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { fetchMovies } from 'store/features/movie/fetchMovie';
-import { fetchMovieDetails } from 'store/features/movie/fetchMovieDetails';
+import { fetchMovies } from 'store/movie/actions/fetchMovie';
+import { fetchMovieDetails } from 'store/movie/actions/fetchMovieDetails';
 import { TMovieDetailsResponse, TMovieListResultObject } from 'types';
 
 type TCurrentMoviesMap = {
@@ -60,12 +60,9 @@ const movieSlice = createSlice({
         state.isLoading = false;
       }
     );
-    builder.addCase(
-      fetchMovies.pending,
-      (state: TMovieSliceState, { payload }) => {
-        state.isLoading = true;
-      }
-    );
+    builder.addCase(fetchMovies.pending, (state: TMovieSliceState) => {
+      state.isLoading = true;
+    });
     builder.addMatcher(
       action => action.type.endsWith('/rejected'),
       state => {

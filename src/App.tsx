@@ -1,27 +1,22 @@
-import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { NotFound } from 'components';
-import { useAppDispatch } from 'hooks';
-import { Details as DetailsPage, Main as MainPage } from 'pages';
-import { fetchConfig } from 'store/features/config/fetchConfig';
+import { useConfigFetcher } from 'hooks/useConfigFetcher';
+import { Details } from 'pages/Details';
+import { Main } from 'pages/Main';
+import { NotFound } from 'ui/NotFound/NotFound';
 
 const App = () => {
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(fetchConfig());
-  }, []);
+  useConfigFetcher();
 
   return (
-    <div className="flex flex-col h-full">
-      <header className="p-3 bg-gradient-to-r from-cyan-500 to-blue-400 shadow-2xl">
-        <h1 className="text-xl font-sans">Plezi's most populars movies</h1>
-        <h2 className="text-sm font-mono">by themoviedb</h2>
+    <div className="flex h-full flex-col">
+      <header className="bg-gradient-to-r from-cyan-500 to-blue-400 p-3 shadow-2xl">
+        <h1 className="font-sans text-xl">Plezi's most populars movies</h1>
+        <h2 className="font-mono text-sm">by themoviedb</h2>
       </header>
       <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/movie/:id" element={<DetailsPage />} />
+        <Route path="/" element={<Main />} />
+        <Route path="/movie/:id" element={<Details />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
