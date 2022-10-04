@@ -1,4 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 import { useConfigFetcher } from 'hooks/useConfigFetcher';
 import { Details } from 'pages/Details';
@@ -19,6 +22,7 @@ const App = () => {
         <Route path="/movie/:id" element={<Details />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <ToastContainer />
     </div>
   );
 };
