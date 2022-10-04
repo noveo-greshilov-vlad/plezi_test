@@ -14,8 +14,8 @@ export const MoviePreview = ({ movie }: TMoviePreviewProps) => {
     <Link to={`/movie/${movie.id}`} state={{ fromDashboard: true }}>
       <div className="relative block h-48 overflow-hidden rounded">
         <img
-          alt="plezi movie lib"
-          className="block h-full w-full cursor-pointer bg-[url('https://dummyimage.com/420x260')] bg-scroll bg-no-repeat object-cover object-center"
+          alt=""
+          className="block h-full w-full cursor-pointer bg-[#cccccc] bg-[url('https://dummyimage.com/260x260?text=Loading')] bg-scroll bg-center bg-no-repeat object-cover object-center"
           src={buildPreviewUrl(movie.poster_path ?? '')}
         />
       </div>
