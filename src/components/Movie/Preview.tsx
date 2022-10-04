@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import { useUrlBuilders } from 'hooks';
-import { TMovieListResultObject } from 'shared';
+import { TMovieListResultObject } from 'types';
 
 export type TPreviewProps = {
   movie: TMovieListResultObject;

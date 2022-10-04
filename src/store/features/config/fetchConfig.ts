@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { getConfig } from 'api';
+import { getConfig } from 'api/config/getConfig';
 
 export const fetchConfig = createAsyncThunk('config/load', async () => {
   const {

@@ -1,8 +1,8 @@
 import PrettyRating from 'pretty-rating-react';
 
 import { useUrlBuilders } from 'hooks';
-import { TMovieDetailsResponse } from 'shared';
-import { formatMoney } from 'shared/utils';
+import { TMovieDetailsResponse } from 'types';
+import { formatMoney } from 'utils';
 
 export type TDetailsProps = {
   movie: TMovieDetailsResponse;

@@ -7,12 +7,34 @@ export enum EMovieStatus {
   canceled = 'Canceled'
 }
 
+export interface IGenre {
+  id: number;
+  name: string;
+}
+
+export interface IProductionCompany {
+  name: string;
+  id: number;
+  logo_path?: string;
+  origin_country: string;
+}
+
+export interface IProductionCountry {
+  iso_3166_1: string;
+  name: string;
+}
+
+export interface ILanguage {
+  iso_639_1: string;
+  name: string;
+}
+
 export type TMovieDetailsResponse = {
   adult: boolean;
   backdrop_path?: string;
   belongs_to_collection?: null;
   budget: number;
-  genres: Array<{ id: number; name: string }>;
+  genres: Array<IGenre>;
   homepage?: string;
   id: number;
   imdb_id?: string;
@@ -21,23 +43,12 @@ export type TMovieDetailsResponse = {
   overview?: string;
   popularity: number;
   poster_path?: string;
-  production_companies: Array<{
-    name: string;
-    id: number;
-    logo_path?: string;
-    origin_country: string;
-  }>;
-  production_countries: Array<{
-    iso_3166_1: string;
-    name: string;
-  }>;
+  production_companies: Array<IProductionCompany>;
+  production_countries: Array<IProductionCountry>;
   release_date: string;
   revenue: number;
   runtime: number;
-  spoken_languages: Array<{
-    iso_639_1: string;
-    name: string;
-  }>;
+  spoken_languages: Array<ILanguage>;
   status: EMovieStatus;
   tagline?: string;
   title: string;

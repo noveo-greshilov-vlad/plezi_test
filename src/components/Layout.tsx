@@ -1,5 +1,5 @@
 import { Preview } from 'components/Movie';
-import { TMovieListResultObject } from 'shared';
+import { TMovieListResultObject } from 'types';
 
 export type TLayoutProps = {
   movies: Array<TMovieListResultObject>;
